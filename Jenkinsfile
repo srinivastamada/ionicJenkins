@@ -16,15 +16,15 @@ pipeline {
 
        stage('IOS Build') {
           steps {
-            // sh 'ionic cordova build ios --release'
-             echo "iOS"
+             sh 'ionic cordova build ios --release'
+             
           }
        }
 
        stage('Android Build') {
           steps {
-              // sh 'ionic cordova build android --release'
-               echo "Android"
+               sh 'ionic cordova build android --release'
+               
           }
        }
 
@@ -35,12 +35,6 @@ pipeline {
           }
        }
 
-       stage('Android Release') {
-          steps {
-              // sh 'mv platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk release/wall.apk'
-               echo "Android"
-          }
-       }
 
 
       stage('Stage Web Build') {
@@ -51,7 +45,8 @@ pipeline {
 
          stage('Publish Firebase Web') {
           steps {
-              sh 'firebase deploy --token "YourTokenKey"'
+              //sh 'firebase deploy --token "YourTokenKey"'
+              echo 'Firebase Deploy'
           }
        }
 
